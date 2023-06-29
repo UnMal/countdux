@@ -1,0 +1,14 @@
+.counter {
+    width: min-content;
+    margin: auto;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons > button {
+    margin-inline: 10px;
+}

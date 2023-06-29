@@ -1,0 +1,10 @@
+.todos {
+    background-color: azure;
+    padding: 20px 10px 25px 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.todos > form> * {
+    margin-right: 10px;
+}

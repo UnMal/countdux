@@ -1,0 +1,18 @@
+.todo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: aliceblue;
+    margin: 10px 0 0 0;
+}
+
+.todo > button {
+    height: min-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+}
+
+.line {
+    text-decoration: line-through;
+  }
