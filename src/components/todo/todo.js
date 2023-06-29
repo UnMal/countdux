@@ -16,12 +16,14 @@ const Todo = ({todo}) => {
     }
     const handleUpdate = (e)=> {
         e.preventDefault();
-        const editedData = {
-            id: todo.id,
-            libelle: edit.current[0].value
-        };
-        dispatch(updateTodo(editedData));
-        edit.current.reset();
+        if(edit.current[0].value!==""){
+            const editedData = {
+                id: todo.id,
+                libelle: edit.current[0].value
+            };
+            dispatch(updateTodo(editedData));
+            edit.current.reset();
+        }        
     }
     const handleTerminer = (e)=> {
         e.preventDefault();
@@ -35,7 +37,7 @@ const Todo = ({todo}) => {
             <button onClick={(e)=>handleDelete(e)}>Supprimer</button>
             {todo.edit?
                 <form ref={edit}>
-                    <input/>
+                    <input placeholder='Updated value' required/>
                     <button onClick={(e)=>handleUpdate(e)}>Mettre a Jour</button>
                 </form>
             :null}

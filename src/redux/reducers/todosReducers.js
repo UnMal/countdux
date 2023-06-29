@@ -11,14 +11,12 @@ export default function todosReducer(state=initialState, action) {
             return state = {
                 todos: action.payload
             };
-        case actionType.ADD_TODO:
-            state = {
-                todos: action.payload
-            }
-            alert("okay")
-            return state;
+        case actionType.ADD_TODO:       
+            return state = {
+                todos: [action.payload, ...state.todos],
+            };
         case actionType.EDIT_TODO:
-            return state.todos.map((todo) => {
+            const todos = state.todos.map((todo) => {
                 if (todo.id===action.payload) {
                     return {
                         ...todo,
@@ -28,8 +26,12 @@ export default function todosReducer(state=initialState, action) {
                     return todo;
                 }
             });
+            return state = {
+                ...state,
+                todos
+            };
         case actionType.UPDATE_TODO:
-            return state.todos.map((todo) => {
+            const updatedTodos = state.todos.map((todo) => {
                 if (todo.id===action.payload.id) {
                     return {
                         ...todo,
@@ -40,8 +42,12 @@ export default function todosReducer(state=initialState, action) {
                     return todo;
                 }
             });
+            return state = {
+                ...state,
+                todos: updatedTodos
+            };
         case actionType.END_TODO:
-            return state.todos.map((todo) => {
+            const endedTodos = state.todos.map((todo) => {
                 if (todo.id===action.payload) {
                     return {
                         ...todo,
@@ -52,8 +58,16 @@ export default function todosReducer(state=initialState, action) {
                     return todo;
                 }
             });
+            return state = {
+                ...state,
+                todos: endedTodos
+            };
         case actionType.REMOVE_TODO:
-            return state.todos.filter((todo) => todo.id !== action.payload);
+            const filteredTodos = state.todos.filter((todo) => todo.id !== action.payload);
+            return state = {
+                ...state,
+                todos: filteredTodos
+            };
         default:
             return state;
     }

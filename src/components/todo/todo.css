@@ -16,3 +16,11 @@
 .line {
     text-decoration: line-through;
   }
+
+form {
+    margin: auto 0 auto 10px;
+}
+
+form > button {
+    margin-left: 10px;
+}

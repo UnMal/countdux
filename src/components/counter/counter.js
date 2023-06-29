@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './counter.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { incrementCounter, decrementCounter, initCounter } from '../../redux/actions/countActions';
@@ -6,7 +6,9 @@ import { incrementCounter, decrementCounter, initCounter } from '../../redux/act
 const Counter = () => {
     const count = useSelector((state)=>state.countReducer);
     const dispatch = useDispatch();
-    dispatch(initCounter());
+    useEffect(()=>{
+        dispatch(initCounter());
+    }, [dispatch]);
     const increment = (e) => {
         e.preventDefault();
         dispatch(incrementCounter());
